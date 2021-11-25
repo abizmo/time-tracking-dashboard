@@ -5,7 +5,9 @@ import {
   Avatar, Container, Info, Menu, Name, Profile, Text, Title,
 } from './styles';
 
-const Header = ({ img, name }) => (
+const Header = ({
+  img, name, onClick, timeframe,
+}) => (
   <Container>
     <Profile>
       <Avatar alt="profile" src={img} />
@@ -15,9 +17,24 @@ const Header = ({ img, name }) => (
       </Info>
     </Profile>
     <Menu>
-      <Title>Daily</Title>
-      <Title active>Weekly</Title>
-      <Title>Monthly</Title>
+      <Title
+        active={timeframe === 'daily'}
+        onClick={() => onClick('daily')}
+      >
+        Daily
+      </Title>
+      <Title
+        active={timeframe === 'weekly'}
+        onClick={() => onClick('weekly')}
+      >
+        Weekly
+      </Title>
+      <Title
+        active={timeframe === 'monthly'}
+        onClick={() => onClick('monthly')}
+      >
+        Monthly
+      </Title>
     </Menu>
   </Container>
 );
@@ -25,6 +42,8 @@ const Header = ({ img, name }) => (
 Header.propTypes = {
   img: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  timeframe: PropTypes.string.isRequired,
 };
 
 export default Header;

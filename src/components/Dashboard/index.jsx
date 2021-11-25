@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import Cards from './Cards';
 import Header from './Header';
 
 const img = './images/image-jeremy.png';
@@ -19,17 +20,22 @@ const Container = styled.div`
   }
 `;
 
-const Cards = styled.div`
-  background-color: orange;
-  height: 600px;
-  width: 100%;
-`;
+const Dashboard = () => {
+  const [timeframe, setTimeframe] = useState('daily');
 
-const Dashboard = () => (
-  <Container>
-    <Header img={img} name={name} />
-    <Cards />
-  </Container>
-);
+  const handleChangeTimeframe = (tf) => setTimeframe(tf);
+
+  return (
+    <Container>
+      <Header
+        img={img}
+        name={name}
+        onClick={handleChangeTimeframe}
+        timeframe={timeframe}
+      />
+      <Cards timeframe={timeframe} />
+    </Container>
+  );
+};
 
 export default Dashboard;
