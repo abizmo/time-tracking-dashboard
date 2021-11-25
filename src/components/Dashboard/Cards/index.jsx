@@ -113,8 +113,17 @@ const timeframes = {
   monthly: 'month',
 };
 
+const Container = styled.div`
+  display: grid;
+  gap: 30px;
+
+  @media(min-width: ${({ theme }) => theme.breakpoint.desktop}) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`;
+
 const Cards = ({ timeframe }) => (
-  <div>
+  <Container>
     {
       cards.map((card) => (
         <Card
@@ -125,7 +134,7 @@ const Cards = ({ timeframe }) => (
         />
       ))
     }
-  </div>
+  </Container>
 );
 
 Cards.propTypes = {

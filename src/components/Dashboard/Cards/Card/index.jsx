@@ -9,7 +9,7 @@ ${({ type, theme }) => css`
   color: white;
   display: grid;
   grid-template-rows: auto auto;
-  margin: 24px 0 48px;
+  margin-top: 30px;
   padding: 24px 16px;
   position:relative;
 
