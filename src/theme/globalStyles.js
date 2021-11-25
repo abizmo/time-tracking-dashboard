@@ -8,9 +8,13 @@ const GlobalStyle = createGlobalStyle`
   body {
     ${({ theme }) => css`
       background-color: ${theme.color.neutral.darker};
-      margin: 0;
-      padding: 0;
+      display: flex;
+      flex-direction: column;
       font-family: ${theme.typography.family.sans};
+      gap: 60px;
+      min-height: 100vh;
+      justify-content: center;
+      padding: 0;
     `}
   }
 `;
