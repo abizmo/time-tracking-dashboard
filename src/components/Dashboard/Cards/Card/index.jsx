@@ -10,7 +10,7 @@ ${({ type, theme }) => css`
   display: grid;
   grid-template-rows: auto auto;
   margin-top: 30px;
-  padding: 24px 16px;
+  padding: 32px 24px;
   position:relative;
 
   &::before{
@@ -31,10 +31,16 @@ ${({ type, theme }) => css`
 `;
 
 const Row = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    @media(min-width: ${theme.breakpoint.desktop}) {
+    }
+  `}
 `;
 
 const Title = styled.p`
@@ -43,9 +49,15 @@ const Title = styled.p`
 `;
 
 const Stat = styled.p`
-  font-size: 30px;
-  font-weight: ${({ theme }) => theme.typography.weight.light};
-  margin: 0;
+  ${({ theme }) => css`
+    font-size: 30px;
+    font-weight: ${theme.typography.weight.light};
+    margin: 0;
+
+    @media(min-width: ${theme.breakpoint.desktop}) {
+      font-size: 52px;
+    }
+  `}
 `;
 
 const More = styled.img.attrs({
@@ -60,6 +72,10 @@ const Small = styled.small`
     color: ${theme.color.neutral.lighter};
     font-weight: ${theme.typography.weight.light};
     text-transform: capitalize;
+
+    @media(min-width: ${theme.breakpoint.desktop}) {
+      font-size: 14px;
+    }
   `}
 `;
 
