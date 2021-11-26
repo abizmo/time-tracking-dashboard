@@ -88,9 +88,15 @@ export const Title = styled.span`
     font-size: 18px;
     text-align: center;
 
+    &:hover{
+      color: white;
+    }
+
     @media(min-width: ${theme.breakpoint.desktop}) {
+      cursor: pointer;
       margin-bottom: 20px;
       text-align: left;
+      width: fit-content;
     }
   `}
 `;

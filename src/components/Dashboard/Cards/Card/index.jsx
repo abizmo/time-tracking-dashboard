@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+import { ReactComponent as IconEllipsis } from './icon-ellipsis.svg';
+
 const Container = styled.div`
 ${({ type, theme }) => css`
   background-color: ${theme.color.neutral.dark};
@@ -34,6 +36,10 @@ ${({ type, theme }) => css`
 
     &::before{
       top: -45px;
+    }
+
+    &:hover{
+      background-color: ${theme.color.neutral.light};
     }
   }
 `}
@@ -86,11 +92,13 @@ const Stat = styled.p`
   `}
 `;
 
-const More = styled.img.attrs({
-  alt: 'More',
-  src: './images/icon-ellipsis.svg',
-})`
-  height: 4px;
+const More = styled(IconEllipsis)`
+  &:hover {
+    cursor: pointer;
+    & path{
+      fill: white;
+    }
+  }
 `;
 
 const Small = styled.small`
