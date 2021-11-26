@@ -9,7 +9,7 @@ ${({ type, theme }) => css`
   color: white;
   display: grid;
   grid-template-rows: auto auto;
-  margin-top: 30px;
+  margin-top: 38px;
   padding: 32px 24px;
   position:relative;
 
@@ -19,24 +19,34 @@ ${({ type, theme }) => css`
     content: ' ';
     background-color: ${theme.color.primary[type]};
     background-image: url('./images/icon-${type}.svg');
-    background-size: 20%;
-    background-position: 90% 5%;
+    background-size: 26%;
+    background-position: 92% 40%;
     background-repeat: no-repeat;
     border-radius: 16px 16px 0 0;
     position: absolute;
-    top: -30px;
+    top: -38px;
     z-index: -1;
   }
 `}
 `;
 
-const Row = styled.div`
+const Header = styled.div`
   ${({ theme }) => css`
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+
+    @media(min-width: ${theme.breakpoint.desktop}) {
+    }
+  `}
+`;
+
+const Stats = styled.div`
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
     }
@@ -64,12 +74,13 @@ const More = styled.img.attrs({
   alt: 'More',
   src: './images/icon-ellipsis.svg',
 })`
-  height: 6px;
+  height: 4px;
 `;
 
 const Small = styled.small`
   ${({ theme }) => css`
     color: ${theme.color.neutral.lighter};
+    font-size: 14px;
     font-weight: ${theme.typography.weight.light};
     text-transform: capitalize;
 
@@ -85,14 +96,14 @@ const Card = ({
   current, previous, timeframe, title,
 }) => (
   <Container type={toKebabCase(title)}>
-    <Row>
+    <Header>
       <Title>{title}</Title>
       <More />
-    </Row>
-    <Row>
+    </Header>
+    <Stats>
       <Stat>{`${current}hrs`}</Stat>
       <Small>{`Last ${timeframe} - ${previous}hrs`}</Small>
-    </Row>
+    </Stats>
   </Container>
 );
 
