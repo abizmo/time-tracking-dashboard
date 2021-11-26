@@ -10,7 +10,7 @@ ${({ type, theme }) => css`
   display: grid;
   grid-template-rows: auto auto;
   margin-top: 38px;
-  padding: 32px 24px;
+  padding: 30px 24px;
   position:relative;
 
   &::before{
@@ -27,6 +27,15 @@ ${({ type, theme }) => css`
     top: -38px;
     z-index: -1;
   }
+
+  @media(min-width: ${theme.breakpoint.desktop}){
+    margin-top: 45px;
+    padding: 34px 30px;
+
+    &::before{
+      top: -45px;
+    }
+  }
 `}
 `;
 
@@ -38,6 +47,7 @@ const Header = styled.div`
     margin-bottom: 16px;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
+      margin-bottom: 24px;
     }
   `}
 `;
@@ -49,23 +59,29 @@ const Stats = styled.div`
     justify-content: space-between;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
+      align-items: start;
+      flex-direction: column;
+      justify-content: center;
     }
   `}
 `;
 
 const Title = styled.p`
-  font-size: 18px;
-  margin: 0;
+  ${({ theme }) => css`
+    font-size: ${theme.typography.size.body};
+    font-weight: ${theme.typography.weight.bold};
+    margin: 0;
+  `}
 `;
 
 const Stat = styled.p`
   ${({ theme }) => css`
-    font-size: 30px;
+    font-size: 32px;
     font-weight: ${theme.typography.weight.light};
-    margin: 0;
+    margin: 0 0 8px;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
-      font-size: 52px;
+      font-size: 56px;
     }
   `}
 `;
@@ -80,12 +96,11 @@ const More = styled.img.attrs({
 const Small = styled.small`
   ${({ theme }) => css`
     color: ${theme.color.neutral.lighter};
-    font-size: 14px;
-    font-weight: ${theme.typography.weight.light};
+    font-size: 15px;
+    font-weight: ${theme.typography.weight.normal};
     text-transform: capitalize;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
-      font-size: 14px;
     }
   `}
 `;
