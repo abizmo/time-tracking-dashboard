@@ -16,13 +16,15 @@ export const Profile = styled.div`
     background-color: ${theme.color.primary.blue};
     border-radius: 16px;
     display: flex;
-    gap: 20px;
-    padding: 32px 30px;
+    gap: 16px;
+    padding: 34px 30px;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
       align-items: start;
       flex: 1;
       flex-direction: column;
+      gap: 40px;
+      padding-bottom: 88px;
     }
   `}
 `;
@@ -44,7 +46,7 @@ export const Avatar = styled.img`
 export const Text = styled.p`
   ${({ theme }) => css`
     color: ${theme.color.neutral.lighter};
-    font-size: 16px;
+    font-size: 15px;
     margin: 0;
   `}
 `;
@@ -58,6 +60,7 @@ export const Name = styled.h1`
     text-transform: capitalize;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
+      font-size: 40px;
       width: min-content;
     }
   `}
@@ -69,12 +72,12 @@ export const Menu = styled.div`
     border-radius: 0 0 16px 16px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 30px 0;
+    padding: 34px 0;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
-      flex-direction: column;
-      justify-content: flex-start;
-      padding-bottom: 0;
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, 1fr);
+      padding-left: 36px;
     }
   `}
 `;
@@ -83,11 +86,11 @@ export const Title = styled.span`
   ${({ active, theme }) => css`
     color: ${active ? 'white' : theme.color.neutral.light};
     font-size: 18px;
-    font-weight: ${theme.typography.weight.light};
     text-align: center;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
+      text-align: left;
     }
   `}
 `;
