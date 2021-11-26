@@ -1,36 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
-  ${({ theme }) => css`
-    background-color: ${theme.color.neutral.dark};
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  `}
-`;
-
-export const Profile = styled.div`
-  ${({ theme }) => css`
-    align-items: center;
-    background-color: ${theme.color.primary.blue};
-    border-radius: 16px;
-    display: flex;
-    gap: 16px;
-    padding: 34px 30px;
-
-    @media(min-width: ${theme.breakpoint.desktop}) {
-      align-items: start;
-      flex: 1;
-      flex-direction: column;
-      gap: 40px;
-      padding-bottom: 88px;
-    }
-  `}
-`;
-
-export const Info = styled.div``;
-
 export const Avatar = styled.img`
   border: 3px solid white;
   border-radius: 50%;
@@ -43,36 +12,21 @@ export const Avatar = styled.img`
   }
 `;
 
-export const Text = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.color.neutral.lighter};
-    font-size: 15px;
-    margin: 0;
-  `}
-`;
-
-export const Name = styled.h1`
-  ${({ theme }) => css`
-    color: white;
-    font-size: 24px;
-    font-weight: ${theme.typography.weight.light};
-    margin: 8px 0 0;
-    text-transform: capitalize;
-
-    @media(min-width: ${theme.breakpoint.desktop}) {
-      font-size: 40px;
-      width: min-content;
-    }
-  `}
+export const Container = styled.div`
+  background-color: ${({ theme }) => theme.color.neutral.dark};
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `;
 
 export const Menu = styled.div`
+  border-radius: 0 0 16px 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 34px 0;
   ${({ theme }) => css`
     background-color: ${theme.color.neutral.dark};
-    border-radius: 0 0 16px 16px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 34px 0;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
       grid-template-columns: auto;
@@ -82,15 +36,51 @@ export const Menu = styled.div`
   `}
 `;
 
+export const Name = styled.h1`
+  color: white;
+  font-size: 24px;
+  margin: 8px 0 0;
+  text-transform: capitalize;
+  ${({ theme }) => css`
+    font-weight: ${theme.typography.weight.light};
+
+    @media(min-width: ${theme.breakpoint.desktop}) {
+      font-size: 40px;
+      width: min-content;
+    }
+  `}
+`;
+
+export const Profile = styled.div`
+  align-items: center;
+  border-radius: 16px;
+  display: flex;
+  gap: 16px;
+  padding: 34px 30px;
+  ${({ theme }) => css`
+    background-color: ${theme.color.primary.blue};
+
+    @media(min-width: ${theme.breakpoint.desktop}) {
+      align-items: start;
+      flex: 1;
+      flex-direction: column;
+      gap: 40px;
+      padding-bottom: 88px;
+    }
+  `}
+`;
+
+export const Text = styled.p`
+  color: ${({ theme }) => theme.color.neutral.lighter};
+  font-size: 15px;
+  margin: 0;
+`;
+
 export const Title = styled.span`
+  font-size: 18px;
+  text-align: center;
   ${({ active, theme }) => css`
     color: ${active ? 'white' : theme.color.neutral.light};
-    font-size: 18px;
-    text-align: center;
-
-    &:hover{
-      color: white;
-    }
 
     @media(min-width: ${theme.breakpoint.desktop}) {
       cursor: pointer;
@@ -99,4 +89,8 @@ export const Title = styled.span`
       width: fit-content;
     }
   `}
+
+  &:hover{
+    color: white;
+  }
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  Avatar, Container, Info, Menu, Name, Profile, Text, Title,
+  Avatar, Container, Menu, Name, Profile, Text, Title,
 } from './styles';
 
 const Header = ({
@@ -11,10 +11,10 @@ const Header = ({
   <Container>
     <Profile>
       <Avatar alt="profile" src={img} />
-      <Info>
+      <div>
         <Text>Report for</Text>
         <Name>{name}</Name>
-      </Info>
+      </div>
     </Profile>
     <Menu>
       <Title

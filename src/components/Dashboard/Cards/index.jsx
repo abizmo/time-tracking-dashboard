@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
-import styled, { css } from 'styled-components';
+
 import Card from './Card';
+import { Container } from './style';
 
 const cards = [{
   title: 'Work',
@@ -112,15 +112,6 @@ const timeframes = {
   weekly: 'week',
   monthly: 'month',
 };
-
-const Container = styled.div`
-  display: grid;
-  gap: 30px;
-
-  @media(min-width: ${({ theme }) => theme.breakpoint.desktop}) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-`;
 
 const Cards = ({ timeframe }) => (
   <Container>
