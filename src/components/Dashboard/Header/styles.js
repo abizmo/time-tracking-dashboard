@@ -44,7 +44,7 @@ export const Avatar = styled.img`
 export const Text = styled.p`
   ${({ theme }) => css`
     color: ${theme.color.neutral.lighter};
-    font-size: ${theme.typography.size.small};
+    font-size: 16px;
     margin: 0;
   `}
 `;
@@ -52,8 +52,8 @@ export const Text = styled.p`
 export const Name = styled.h1`
   ${({ theme }) => css`
     color: white;
-    font-size: ${theme.typography.size.body};
-    font-weight: ${theme.typography.weight.bold};
+    font-size: 24px;
+    font-weight: ${theme.typography.weight.light};
     margin: 8px 0 0;
     text-transform: capitalize;
 
@@ -67,9 +67,9 @@ export const Menu = styled.div`
   ${({ theme }) => css`
     background-color: ${theme.color.neutral.dark};
     border-radius: 0 0 16px 16px;
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 30px 0;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
       flex-direction: column;
@@ -82,6 +82,9 @@ export const Menu = styled.div`
 export const Title = styled.span`
   ${({ active, theme }) => css`
     color: ${active ? 'white' : theme.color.neutral.light};
+    font-size: 18px;
+    font-weight: ${theme.typography.weight.light};
+    text-align: center;
 
     @media(min-width: ${theme.breakpoint.desktop}) {
       margin-bottom: 40px;
