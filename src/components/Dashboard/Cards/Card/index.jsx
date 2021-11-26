@@ -40,6 +40,7 @@ ${({ type, theme }) => css`
 
     &:hover{
       background-color: ${theme.color.neutral.light};
+      cursor: pointer;
     }
   }
 `}
