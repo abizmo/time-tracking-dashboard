@@ -9,18 +9,22 @@ import {
 
 const Card = ({
   current, previous, timeframe, title,
-}) => (
-  <Container type={toKebabCase(title)}>
-    <Header>
-      <Title>{title}</Title>
-      <More />
-    </Header>
-    <Stats>
-      <Stat>{`${current}hrs`}</Stat>
-      <Small>{`Last ${timeframe} - ${previous}hrs`}</Small>
-    </Stats>
-  </Container>
-);
+}) => {
+  const textTimeframe = timeframe === 'day' ? 'yesterday' : `last ${timeframe}`;
+
+  return (
+    <Container type={toKebabCase(title)}>
+      <Header>
+        <Title>{title}</Title>
+        <More />
+      </Header>
+      <Stats>
+        <Stat>{`${current}hrs`}</Stat>
+        <Small>{`${textTimeframe} - ${previous}hrs`}</Small>
+      </Stats>
+    </Container>
+  );
+};
 
 Card.propTypes = {
   current: PropTypes.number.isRequired,
